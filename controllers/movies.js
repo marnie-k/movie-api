@@ -9,7 +9,8 @@ const getMovieByTitle = (request, response) => {
   const { search } = request.params
 
   const movie = movies.filter((movie) => {
-    return movie.title.toLowerCase().includes(search.toLowerCase())
+    return movie.title.toLowerCase().includes(search.toLowerCase()) ||
+    movie.directors.find((director) => director.toLowerCase().includes(search.toLowerCase())
   })
 
   if (!movie.length) return send.status(404)
