@@ -10,7 +10,7 @@ const getMovieByTitle = (request, response) => {
 
   const movie = movies.filter((movie) => {
     return movie.title.toLowerCase().includes(search.toLowerCase()) ||
-    movie.directors.find((director) => director.toLowerCase().includes(search.toLowerCase())
+    movie.directors.find((director) => director.toLowerCase().includes(search.toLowerCase()))
   })
 
   if (!movie.length) return send.status(404)
@@ -18,8 +18,12 @@ const getMovieByTitle = (request, response) => {
   return response.send(movie)
 }
 
+const addNewMovie = (request, response) => {
+
+}
 
 module.exports = {
   getAllMovies,
-  getMovieByTitle
+  getMovieByTitle,
+  addNewMovie
 }
